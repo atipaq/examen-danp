@@ -7,12 +7,22 @@
 
 import SwiftUI
 
-struct FoodRoow: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-    }
-}
+struct FoodRow: View {
+    var food: Food
 
-#Preview {
-    FoodRoow()
+    var body: some View {
+        HStack {
+            food.image
+                .resizable()
+                .frame(width: 50, height: 50)
+            Text(food.nombre)
+
+            Spacer()
+
+            if food.isFavorite {
+                Image(systemName: "star.fill")
+                    .foregroundStyle(.yellow)
+            }
+        }
+    }
 }
